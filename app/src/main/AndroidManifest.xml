@@ -20,10 +20,7 @@
             android:value="ca-app-pub-9595965399322357~5255202858"
             />
         <activity
-            android:name=".FragmentCalculadora"
-            android:exported="true" />
-        <activity
-            android:name=".FragmentAbertura"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

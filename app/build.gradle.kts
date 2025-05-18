@@ -11,8 +11,8 @@ android {
         applicationId = "br.com.i9android.bootime"
         minSdk = 24
         targetSdk = 35
-        versionCode = 7
-        versionName = "1.0.2.a"
+        versionCode = 8
+        versionName = "1.0.2.b"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,10 +48,13 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.android.gms:play-services-ads:23.6.0")
     implementation("com.google.android.play:app-update:2.1.0")
-    implementation("com.google.android.play:app-update-ktx:2.1.0")
-    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
+    // Navigation Component
+    implementation("androidx.navigation:navigation-fragment:2.7.7")
+    implementation("androidx.navigation:navigation-ui:2.7.7")
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

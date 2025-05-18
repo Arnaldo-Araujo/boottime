@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    tools:context=".ui.CalculadoraFragment">
+
+    <!-- Diretriz superior -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10123119" />
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="154dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/logo_do_projeto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/boottime" />
+
+    <!-- Texto explicativo -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="20dp"
+        android:text="@string/digite_abaixo_as_datas_de_in_cio_e_termino_do_tempo_de_servi_o_militar_para_ser_feito_o_calculo"
+        android:textColor="#263238"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
+
+    <!-- Título Data Inicial -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/data_inicial"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <!-- Campo Data Inicial -->
+    <EditText
+        android:id="@+id/idDataInicial"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/dd_mm_aaaa"
+        android:inputType="date"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="Autofill,DuplicateSpeakableTextCheck" />
+
+    <!-- Título Data Final -->
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/data_final"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <!-- Campo Data Final -->
+
+    <!-- Switch Bissexto -->
+
+    <EditText
+        android:id="@+id/idDataFinal"
+        android:layout_width="154dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/dd_mm_aaaa"
+        android:inputType="date"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/idBissextoOuNao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/somar_dias_dos_anos_bissexto"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idDataFinal" />
+
+    <!-- Botão Calcular -->
+    <Button
+        android:id="@+id/btnCalcularTempoDeServico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/calcular_tempo_de_servi_o"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idBissextoOuNao" />
+
+    <!-- Resultado -->
+    <TextView
+        android:id="@+id/idTextResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/resultado"
+        android:textColor="@color/laranja"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalcularTempoDeServico" />
+
+    <!-- Texto de incentivo -->
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nos_ajude_compartilhando"
+        android:textColor="#E1F5FE"
+        app:layout_constraintBottom_toTopOf="@+id/adViewCalculadora"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTextResultado"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <!-- Botão WhatsApp -->
+    <ImageButton
+        android:id="@+id/idimageWhatsapp"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/imagem_do_whatsapp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/zap" />
+
+    <!-- Botão Facebook -->
+    <ImageButton
+        android:id="@+id/idimageFacebook"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/imagem_do_facebook"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/fb" />
+
+    <!-- Diretriz inferior opcional -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.23" />
+
+    <!-- AdMob -->
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adViewCalculadora"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-9595965399322357/6507207792"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
