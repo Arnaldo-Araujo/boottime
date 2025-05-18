@@ -1,0 +1,13 @@
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_splash"
+        android:icon="@drawable/ic_splash"
+        tools:ignore="MenuTitle" />
+
+    <item
+        android:id="@+id/nav_calculadora"
+        android:icon="@drawable/ic_calculadora"
+        tools:ignore="MenuTitle" />
+</menu>
+
