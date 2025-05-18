@@ -14,7 +14,7 @@ import com.google.android.gms.ads.MobileAds;
 /**
  * Classe MainActivity - Tela de Splash da aplicação.
  */
-public class MainActivity extends AppCompatActivity implements Runnable {
+public class FragmentAbertura extends AppCompatActivity implements Runnable {
 
     private final Handler handler = new Handler(Looper.getMainLooper());
 
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements Runnable {
     @Override
     public void run() {
         if (!isFinishing()) {
-            Intent intent = new Intent(this, CalculadoraActivity.class);
+            Intent intent = new Intent(this, FragmentCalculadora.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
