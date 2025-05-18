@@ -45,7 +45,7 @@ import br.com.i9android.bootime.util.DateMaskWatcher;
  * @author Arnaldo Junior Dev
  * @version 1.0
  */
-public class CalculadoraActivity extends AppCompatActivity {
+public class FragmentCalculadora extends AppCompatActivity {
 
     // Elementos da interface do usuário
     private EditText editTextDataInicial, editTextDataFinal;
