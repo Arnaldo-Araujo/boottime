@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Bootime</string>
+    <string name="dd_mm_yyyy">dd/MM/yyyy</string>
+    <string name="somar_dias_dos_anos_bissexto">Somar dias dos anos bissexto?</string>
+    <string name="calcular_tempo_de_servi_o">Calcular tempo de serviço</string>
+    <string name="resultado">Resultado</string>
+    <string name="data_final">Data Final</string>
+    <string name="data_inicial">Data Inicial</string>
+    <string name="dd_mm_aaaa">DD/MM/AAAA</string>
+    <string name="digite_abaixo_as_datas_de_in_cio_e_termino_do_tempo_de_servi_o_militar_para_ser_feito_o_calculo">Digite abaixo as datas de início e termino do tempo de serviço militar para ser feito o calculo.</string>
+    <string name="logo_do_projeto">Logo do Projeto</string>
+    <string name="nos_ajude_compartilhando">Nos Ajude Compartilhando</string>
+    <string name="imagem_do_facebook">Imagem do Facebook</string>
+    <string name="imagem_do_whatsapp">Imagem do WhatsApp</string>
+</resources>
