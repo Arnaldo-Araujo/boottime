@@ -33,10 +33,21 @@ import br.com.i9android.bootime.R;
 import br.com.i9android.bootime.util.DateMaskWatcher;
 
 /**
- * Classe Calculadora - Responsável pelo cálculo da diferença entre duas datas.
+ * {@code CalculadoraFragment} é um fragmento que permite ao usuário calcular a diferença entre duas datas.
  * <p>
- * Esta atividade recebe duas datas de entrada e calcula a diferença entre elas
- * em anos, meses e dias. Também permite ativar ou desativar a contagem de anos bissextos.
+ * O cálculo apresenta o resultado em anos, meses e dias, considerando a opção de incluir ou não
+ * anos bissextos. Além disso, permite compartilhar o aplicativo via WhatsApp e Facebook e exibe
+ * anúncios usando o AdMob.
+ * </p>
+ *
+ * <p>Componentes da UI:
+ * <ul>
+ *   <li>Dois {@link EditText} para datas de início e fim</li>
+ *   <li>{@link TextView} para exibição do resultado</li>
+ *   <li>{@link SwitchCompat} para considerar anos bissextos</li>
+ *   <li>Botões para compartilhar via apps sociais</li>
+ *   <li>Anúncio do AdMob</li>
+ * </ul>
  * </p>
  *
  * @author Arnaldo Junior Dev
@@ -53,18 +64,20 @@ public class CalculadoraFragment extends Fragment {
 
     private SimpleDateFormat sdf;
 
-
     /**
-     * Metodo chamado na criação da atividade.
-     * Inicializa os componentes da interface e configura os eventos de clique e máscara de entrada.
+     * Inicializa os componentes visuais do fragmento e define eventos de clique
+     * e máscaras de formatação de data.
      *
-     * @param savedInstanceState Estado salvo da atividade anterior (caso exista).
+     * @param inflater           O LayoutInflater usado para inflar o layout.
+     * @param container          O container pai onde o fragmento será inserido.
+     * @param savedInstanceState Estado anterior salvo do fragmento.
+     * @return A view criada e configurada do fragmento.
      */
-
     @SuppressLint("SimpleDateFormat")
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calculadora, container, false);
 
         MobileAds.initialize(requireContext(), initializationStatus -> {});
@@ -94,11 +107,19 @@ public class CalculadoraFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Carrega o anúncio do AdMob na view {@code adView}.
+     */
     private void carregarAnuncio() {
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
     }
 
+    /**
+     * Compartilha o link do aplicativo diretamente no aplicativo definido.
+     *
+     * @param pacote Nome do pacote do app (ex: WhatsApp, Facebook).
+     */
     private void compartilharDireto(String pacote) {
         String link = "https://play.google.com/store/apps/details?id=" + requireContext().getPackageName();
         String mensagem = "Olá! Baixe o app BootTime e descubra seu tempo de serviço militar! 🚀📲\n" + link;
@@ -115,6 +136,11 @@ public class CalculadoraFragment extends Fragment {
         }
     }
 
+    /**
+     * Calcula a diferença entre duas datas inseridas pelo usuário.
+     * Considera a opção de adicionar anos bissextos caso o switch esteja ativado.
+     * Exibe o resultado no {@link TextView}.
+     */
     private void calcularDiferencaDatas() {
         esconderTeclado();
         if (TextUtils.isEmpty(editTextDataInicial.getText()) || TextUtils.isEmpty(editTextDataFinal.getText())) {
@@ -183,6 +209,9 @@ public class CalculadoraFragment extends Fragment {
         }
     }
 
+    /**
+     * Oculta o teclado do dispositivo, se estiver visível.
+     */
     private void esconderTeclado() {
         View view = requireActivity().getCurrentFocus();
         if (view != null) {
@@ -191,6 +220,13 @@ public class CalculadoraFragment extends Fragment {
         }
     }
 
+    /**
+     * Conta os anos bissextos entre dois anos.
+     *
+     * @param anoInicio Ano inicial.
+     * @param anoFim    Ano final.
+     * @return Quantidade de anos bissextos no intervalo.
+     */
     private int contarDiasBissextos(int anoInicio, int anoFim) {
         int count = 0;
         for (int ano = anoInicio; ano <= anoFim; ano++) {
@@ -208,6 +244,12 @@ public class CalculadoraFragment extends Fragment {
         return count;
     }
 
+    /**
+     * Verifica se um ano é bissexto.
+     *
+     * @param ano Ano a ser verificado.
+     * @return {@code true} se o ano for bissexto, caso contrário {@code false}.
+     */
     private boolean ehAnoBissexto(int ano) {
         return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
     }
